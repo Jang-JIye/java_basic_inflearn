@@ -38,10 +38,12 @@ class ApplicationContextBasicFindTest {
         assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
+    //언제나 실패했을때의 테스트코드도 만들자!
     @Test
     @DisplayName("빈 이름으로 조회X")
     void findBeanByNameX() {
         //ac.getBean("xxxxx", MemberService.class);
+        //예외가 터져야 테스트가 성공!
         Assertions.assertThrows(NoSuchBeanDefinitionException.class, () ->
                 ac.getBean("xxxxx", MemberService.class));
     }
